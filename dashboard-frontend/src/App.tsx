@@ -1,6 +1,9 @@
 import { GitHubBanner, Refine, WelcomePage } from "@refinedev/core";
 import { DevtoolsPanel, DevtoolsProvider } from "@refinedev/devtools";
 import { RefineKbar, RefineKbarProvider } from "@refinedev/kbar";
+import { BookOpen } from "lucide-react";
+import SubjectsList from "@/pages/subjects/list.tsx"
+import SubjectsCreate from "@/pages/subjects/create.tsx"
 
 import routerProvider, {
   DocumentTitleHandler,
@@ -37,12 +40,15 @@ function App() {
                   name: "dashboard",
                   list: "/",
                   meta: {
-                    label: "Home", icon: <Home />,
-                  },
-                  show: "/",
-                  create: "/",
-                  edit: "/",
+                    label: "Home", icon: <Home />},
                 },
+                {
+                  name: "subjects",
+                  list: "/subjects",
+                  meta: {
+                    label: "Subjects", icon: <BookOpen />},
+                }
+                
               ]}
             >
               <Routes>
@@ -52,6 +58,11 @@ function App() {
                   </Layout>
                 }>
                   <Route path="/" element={<Dashboard />} />
+
+                    <Route path="subjects">
+                      <Route index element={<SubjectsList />} />
+                      <Route path="create" element={<SubjectsCreate />} />
+                      </Route>
                 </Route>
                 
               </Routes>
