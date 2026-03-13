@@ -2,8 +2,6 @@ import { GitHubBanner, Refine, WelcomePage } from "@refinedev/core";
 import { DevtoolsPanel, DevtoolsProvider } from "@refinedev/devtools";
 import { RefineKbar, RefineKbarProvider } from "@refinedev/kbar";
 import { BookOpen } from "lucide-react";
-import SubjectsList from "@/pages/subjects/list.tsx"
-import SubjectsCreate from "@/pages/subjects/create.tsx"
 
 import routerProvider, {
   DocumentTitleHandler,
@@ -14,11 +12,13 @@ import "./App.css";
 import { Toaster } from "./components/refine-ui/notification/toaster";
 import { useNotificationProvider } from "./components/refine-ui/notification/use-notification-provider";
 import { ThemeProvider } from "./components/refine-ui/theme/theme-provider";
-import { dataProvider } from "./providers/data";
+import { dataProvider } from "./providers/data.ts";
 import { Home } from "lucide-react";
 import Dashboard from "@/pages/dashboard.tsx";
 import { Layout } from "./components/refine-ui/layout/layout";
 import { Outlet } from "react-router";
+import SubjectsList from "@/pages/subjects/list.tsx"
+import SubjectsCreate from "@/pages/subjects/create.tsx"
 
 function App() {
   return (
