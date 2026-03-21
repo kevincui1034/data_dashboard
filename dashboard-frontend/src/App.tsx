@@ -1,7 +1,7 @@
 import { GitHubBanner, Refine, WelcomePage } from "@refinedev/core";
 import { DevtoolsPanel, DevtoolsProvider } from "@refinedev/devtools";
 import { RefineKbar, RefineKbarProvider } from "@refinedev/kbar";
-import { BookOpen } from "lucide-react";
+import { BookOpen, GraduationCap } from "lucide-react";
 
 import routerProvider, {
   DocumentTitleHandler,
@@ -19,6 +19,8 @@ import { Layout } from "./components/refine-ui/layout/layout";
 import { Outlet } from "react-router";
 import SubjectsList from "@/pages/subjects/list.tsx"
 import SubjectsCreate from "@/pages/subjects/create.tsx"
+import ClassesList from "@/pages/classes/list.tsx"
+import ClassesCreate from "@/pages/classes/create.tsx"
 
 function App() {
   return (
@@ -47,8 +49,13 @@ function App() {
                   list: "/subjects",
                   meta: {
                     label: "Subjects", icon: <BookOpen />},
+                },
+                {
+                  name: "classes",
+                  list: "/classes",
+                  meta: {
+                    label: "Classes", icon: <GraduationCap />},
                 }
-                
               ]}
             >
               <Routes>
@@ -63,6 +70,11 @@ function App() {
                       <Route index element={<SubjectsList />} />
                       <Route path="create" element={<SubjectsCreate />} />
                       </Route>
+
+                    <Route path="classes">
+                    <Route index element={<ClassesList />} />
+                    <Route path="create" element={<ClassesCreate />} />
+                    </Route>
                 </Route>
                 
               </Routes>
